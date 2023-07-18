@@ -48,22 +48,18 @@ app.post('/users', (req: express.Request, res: express.Response) => {
   res.status(201).json(newUser);
 });
 
-// app.delete('/users/:id', (req: express.Request, res: express.Response) => {
-//   const userId = parseInt(req.params.id);
+app.delete('/users/:id', (req: express.Request, res: express.Response) => {
+  const userId = parseInt(req.params.id);
 
-//   const deletedUserIndex = users.findIndex((user) => user.id === userId);
-//   console.log(deletedUserIndex);
+  const deletedUserIndex = users.findIndex((user) => user.id === userId);
 
-//   if (deletedUserIndex === -1) {
-//     return res.status(404).json({ error: "User not found" });
-//   }
+  if (deletedUserIndex === -1) {
+    return res.status(404).json({ error: "User not found" });
+  }
 
-//   const deletedUser = users.slice(deletedUserIndex, 1)[0];
-//   res.json(deletedUser);
-
-// });
-
-
+  const deletedUser = users.splice(deletedUserIndex, 1)[0];
+  res.json(deletedUser);
+});
 
 app.use(express.json());
 
