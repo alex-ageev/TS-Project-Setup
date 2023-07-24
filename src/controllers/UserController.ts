@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { IUser } from './../models/userModel.js';
 import UserService from '../services/UserService.js';
+import TokenService from '../services/TokenService.js';
+
 
 class UserController {
   // Get All Users
@@ -37,21 +39,21 @@ class UserController {
   }
 
 
-  // create(req: Request, res: Response) {
-  //   try {
-  //     console.log(req.body);
-  //     const createdUser: IUser = {
-  //       id: users.length + 1,
-  //       name: req.body.name,
-  //       email: req.body.email,
-  //     }
-  //     users.push(createdUser);
-  //     res.status(201).json(createdUser);
-  //   } catch (err) {
-  //     console.log(err);
-  //     res.status(500).send({ errorMessage: 'Failed to create user', error: err })
-  //   }
-  // }
+  async register(req: Request, res: Response) {
+    try {
+      const createdUser = await UserService.register(req.body.name, req.body.email, req.body.roles, req.body.password);
+
+      if (!createdUser) {
+        return res.status(500).send({ errorMessage: 'Failed to create user' })
+      }
+
+      const { accessToken } = TokenService.generateAccessToken(createdUser);
+      res.status(201).json({ accessToken: accessToken, user: createdUser});
+    } catch (err) {
+      console.log(err);
+      res.status(500).send({ errorMessage: 'Failed to create user', error: err })
+    }
+  }
   // delete(req: Request, res: Response) {
   //   try {
   //     const userId = parseInt(req.params.id);

@@ -1,10 +1,12 @@
 import { IUser } from './../models/userModel.js';
+import Role from './../models/roleModel.js'
+import bcrypt from 'bcrypt';
 
 let users: IUser[] = [];
 
-users = [{ id: 1, name: "Alex", email: "api@gmail.com" },
-{ id: 2, name: "Fiama", email: "fiama@gmail.com" }]
-users.push({ id: 3, name: "Maria", email: "maria@gmail.com" })
+users = [{ id: 1, name: "Alex", email: "api@gmail.com", roles: [Role.USER] },
+{ id: 2, name: "Fiama", email: "fiama@gmail.com", roles: [Role.USER] }]
+users.push({ id: 3, name: "Maria", email: "maria@gmail.com", roles: [Role.USER] })
 
 class UserService {
   // Get All Users
@@ -20,21 +22,34 @@ class UserService {
   }
 
 
-  // create() {
-  //   try {
-  //     console.log(req.body);
-  //     const createdUser: IUser = {
-  //       id: users.length + 1,
-  //       name: req.body.name,
-  //       email: req.body.email,
-  //     }
-  //     users.push(createdUser);
-  //     res.status(201).json(createdUser);
-  //   } catch (err) {
-  //     console.log(err);
-  //     res.status(500).send({ errorMessage: 'Failed to create user', error: err })
-  //   }
-  // }
+  async register(name: string, email: string, roles: Role[] = [Role.USER], password: string): Promise<IUser | undefined> {
+    try {
+      if (!password) {
+        throw new Error('Password is required.');
+      }
+      if (!roles.every(role => [Role.ADMIN, Role.USER].includes(role))) {
+        throw new Error('Invalid role value.');
+      }
+      // generates a hashed password to store in the database
+      const hashedPassword = await bcrypt.hash(password, 7);
+
+      const createdUser: IUser = {
+        id: users.length + 1,
+        name: name,
+        email: email,
+        password: hashedPassword,
+        roles: roles
+      }
+
+      users.push(createdUser);
+
+      return await createdUser as Exclude<IUser, 'password'>;
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   // delete() {
   //   try {
   //     const userId = parseInt(req.params.id);
