@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { IUser } from './../models/userModel.js';
-import UserService from '../services/UserService.js';
-import TokenService from '../services/TokenService.js';
+import UserService from './../services/UserService.js';
+import TokenService from './../services/TokenService.js';
 
 
 class UserController {
@@ -15,7 +15,6 @@ class UserController {
       res.status(500).send({ errorMessage: 'Cannot get users', error: err })
     }
   }
-
 
   // Get One User by ID
   getOne(req: Request, res: Response) {
