@@ -2,7 +2,7 @@ import { IDevice } from "../models/deviceModel.js";
 
 export const devices: IDevice[] = [
   {
-    id: 1,
+    id: '1',
     name: 'iPhone 14 Pro',
     description: 'A powerful smartphone with a stunning display.',
     price: 1099.99,
@@ -11,7 +11,7 @@ export const devices: IDevice[] = [
     type: 'Smartphone',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Galaxy Tab S7',
     description: 'A high-performance tablet with a large screen.',
     price: 699.99,
@@ -20,7 +20,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Pixelbook Go',
     description: 'A lightweight and powerful laptop for productivity.',
     price: 899.99,
@@ -29,7 +29,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 4,
+    id: '4',
     name: 'WH-1000XM4',
     description: 'High-quality noise-canceling headphones.',
     price: 349.99,
@@ -38,7 +38,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 5,
+    id: '5',
     name: 'Mi Watch',
     description: 'A feature-packed smartwatch for fitness enthusiasts.',
     price: 199.99,
@@ -47,7 +47,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 6,
+    id: '6',
     name: 'Surface Laptop 4',
     description: 'A premium laptop with excellent performance.',
     price: 1299.99,
@@ -56,7 +56,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 7,
+    id: '7',
     name: 'AirPods Pro',
     description: 'High-quality wireless earbuds with noise cancellation.',
     price: 249.99,
@@ -65,7 +65,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 8,
+    id: '8',
     name: 'Kindle Paperwhite',
     description: 'A waterproof e-reader with a high-resolution display.',
     price: 129.99,
@@ -74,7 +74,7 @@ export const devices: IDevice[] = [
     type: 'E-reader',
   },
   {
-    id: 9,
+    id: '9',
     name: 'PlayStation 5',
     description: 'The latest gaming console from Sony with powerful hardware.',
     price: 499.99,
@@ -83,7 +83,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Console',
   },
   {
-    id: 10,
+    id: '10',
     name: 'Galaxy Watch 4',
     description: 'A smartwatch with a sleek design and health tracking features.',
     price: 299.99,
@@ -92,7 +92,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 11,
+    id: '11',
     name: 'iPad Pro',
     description: 'A powerful tablet for productivity and creative tasks.',
     price: 799.99,
@@ -101,7 +101,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 12,
+    id: '12',
     name: 'XPS 13',
     description: 'A premium ultrabook with a borderless display.',
     price: 1399.99,
@@ -110,7 +110,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 13,
+    id: '13',
     name: 'Bose QuietComfort 35 II',
     description: 'Comfortable over-ear headphones with excellent noise cancellation.',
     price: 279.99,
@@ -119,7 +119,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 14,
+    id: '14',
     name: 'Nest Thermostat',
     description: 'A smart thermostat that helps save energy and control the temperature.',
     price: 199.99,
@@ -128,7 +128,7 @@ export const devices: IDevice[] = [
     type: 'Smart Home',
   },
   {
-    id: 15,
+    id: '15',
     name: 'Surface Pro 7',
     description: 'A versatile 2-in-1 device for productivity and creativity.',
     price: 899.99,
@@ -137,7 +137,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 16,
+    id: '16',
     name: 'iPhone SE',
     description: 'A compact and budget-friendly smartphone from Apple.',
     price: 399.99,
@@ -146,7 +146,7 @@ export const devices: IDevice[] = [
     type: 'Smartphone',
   },
   {
-    id: 17,
+    id: '17',
     name: 'Amazon Echo Dot',
     description: 'A smart speaker with Alexa voice assistant.',
     price: 59.99,
@@ -155,7 +155,7 @@ export const devices: IDevice[] = [
     type: 'Smart Home',
   },
   {
-    id: 18,
+    id: '18',
     name: 'Sony Alpha a6400',
     description: 'A mirrorless camera with fast autofocus and excellent image quality.',
     price: 999.99,
@@ -164,7 +164,7 @@ export const devices: IDevice[] = [
     type: 'Camera',
   },
   {
-    id: 19,
+    id: '19',
     name: 'Fitbit Charge 4',
     description: 'A fitness tracker with built-in GPS and heart rate monitoring.',
     price: 149.99,
@@ -173,7 +173,7 @@ export const devices: IDevice[] = [
     type: 'Fitness Tracker',
   },
   {
-    id: 20,
+    id: '20',
     name: 'DJI Mavic Air 2',
     description: 'A compact and powerful drone for aerial photography and videography.',
     price: 799.99,
@@ -182,7 +182,7 @@ export const devices: IDevice[] = [
     type: 'Drone',
   },
   {
-    id: 21,
+    id: '21',
     name: 'LG OLED CX',
     description: 'A high-end OLED TV with stunning picture quality and smart features.',
     price: 1999.99,
@@ -191,7 +191,7 @@ export const devices: IDevice[] = [
     type: 'TV',
   },
   {
-    id: 22,
+    id: '22',
     name: 'Logitech MX Master 3',
     description: 'A premium wireless mouse for productivity and precision.',
     price: 99.99,
@@ -200,7 +200,7 @@ export const devices: IDevice[] = [
     type: 'Computer Accessories',
   },
   {
-    id: 23,
+    id: '23',
     name: 'GoPro HERO9 Black',
     description: 'A rugged action camera with 5K video recording and advanced stabilization.',
     price: 449.99,
@@ -209,7 +209,7 @@ export const devices: IDevice[] = [
     type: 'Action Camera',
   },
   {
-    id: 24,
+    id: '24',
     name: 'Nintendo Switch',
     description: 'A versatile gaming console that can be used as a handheld or connected to a TV.',
     price: 299.99,
@@ -218,7 +218,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Console',
   },
   {
-    id: 25,
+    id: '25',
     name: 'Bose SoundLink Revolve+',
     description: 'A portable Bluetooth speaker with 360-degree sound.',
     price: 299.99,
@@ -227,7 +227,7 @@ export const devices: IDevice[] = [
     type: 'Speakers',
   },
   {
-    id: 26,
+    id: '26',
     name: 'Samsung Odyssey G9',
     description: 'An ultrawide gaming monitor with a high refresh rate and QLED display.',
     price: 1499.99,
@@ -236,7 +236,7 @@ export const devices: IDevice[] = [
     type: 'Monitors',
   },
   {
-    id: 27,
+    id: '27',
     name: 'Sony WH-1000XM3',
     description: 'Premium noise-canceling headphones with long battery life.',
     price: 299.99,
@@ -245,7 +245,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 28,
+    id: '28',
     name: 'Garmin Forerunner 245',
     description: 'A GPS running watch with advanced running dynamics and training features.',
     price: 299.99,
@@ -254,7 +254,7 @@ export const devices: IDevice[] = [
     type: 'Fitness Tracker',
   },
   {
-    id: 29,
+    id: '29',
     name: 'Microsoft Surface Pro X',
     description: 'A slim and lightweight 2-in-1 device with LTE connectivity.',
     price: 999.99,
@@ -263,7 +263,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 30,
+    id: '30',
     name: 'Razer DeathAdder V2',
     description: 'A gaming mouse with high DPI and customizable RGB lighting.',
     price: 69.99,
@@ -272,7 +272,7 @@ export const devices: IDevice[] = [
     type: 'Computer Accessories',
   },
   {
-    id: 31,
+    id: '31',
     name: 'JBL Flip 5',
     description: 'A portable Bluetooth speaker with deep bass and waterproof design.',
     price: 119.99,
@@ -281,7 +281,7 @@ export const devices: IDevice[] = [
     type: 'Speakers',
   },
   {
-    id: 32,
+    id: '32',
     name: 'Acer Predator Helios 300',
     description: 'A gaming laptop with a high refresh rate display and powerful GPU.',
     price: 1199.99,
@@ -290,7 +290,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 33,
+    id: '33',
     name: 'Amazon Kindle Oasis',
     description: 'A premium e-reader with an ergonomic design and adjustable warm light.',
     price: 269.99,
@@ -299,7 +299,7 @@ export const devices: IDevice[] = [
     type: 'E-reader',
   },
   {
-    id: 34,
+    id: '34',
     name: 'Sony PlayStation VR',
     description: 'A virtual reality headset for an immersive gaming experience.',
     price: 299.99,
@@ -308,7 +308,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Accessories',
   },
   {
-    id: 35,
+    id: '35',
     name: 'Fitbit Versa 3',
     description: 'A smartwatch with built-in GPS and health monitoring features.',
     price: 229.99,
@@ -317,7 +317,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 36,
+    id: '36',
     name: 'LG Gram 17',
     description: 'An ultra-lightweight and long-lasting laptop for on-the-go productivity.',
     price: 1599.99,
@@ -326,7 +326,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 37,
+    id: '37',
     name: 'Bose QuietComfort Earbuds',
     description: 'True wireless earbuds with noise-canceling technology.',
     price: 279.99,
@@ -335,7 +335,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 38,
+    id: '38',
     name: 'Dell XPS 15',
     description: 'A premium laptop with a stunning 4K display and powerful performance.',
     price: 1999.99,
@@ -344,7 +344,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 39,
+    id: '39',
     name: 'Canon EOS R6',
     description: 'A full-frame mirrorless camera with advanced autofocus and image stabilization.',
     price: 2499.99,
@@ -353,7 +353,7 @@ export const devices: IDevice[] = [
     type: 'Camera',
   },
   {
-    id: 40,
+    id: '40',
     name: 'Apple Watch Series 7',
     description: 'The latest smartwatch from Apple with a larger display and new health features.',
     price: 399.99,
@@ -362,7 +362,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 41,
+    id: '41',
     name: 'Sony BRAVIA A90J',
     description: 'An OLED TV with exceptional picture quality and immersive sound.',
     price: 2799.99,
@@ -371,7 +371,7 @@ export const devices: IDevice[] = [
     type: 'TV',
   },
   {
-    id: 42,
+    id: '42',
     name: 'Microsoft Surface Laptop 4',
     description: 'A sleek and powerful laptop for productivity and creativity.',
     price: 1299.99,
@@ -380,7 +380,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 43,
+    id: '43',
     name: 'Samsung Galaxy Watch 4',
     description: 'A feature-packed smartwatch with health and fitness tracking capabilities.',
     price: 299.99,
@@ -389,7 +389,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 44,
+    id: '44',
     name: 'Anker Soundcore Liberty Air 2 Pro',
     description: 'True wireless earbuds with active noise-cancellation.',
     price: 129.99,
@@ -398,7 +398,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 45,
+    id: '45',
     name: 'Lenovo Legion 5',
     description: 'A gaming laptop with powerful performance and cooling technology.',
     price: 1299.99,
@@ -407,7 +407,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 46,
+    id: '46',
     name: 'Beats Studio Buds',
     description: 'Wireless earbuds with active noise-cancellation and high-quality sound.',
     price: 149.99,
@@ -416,7 +416,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 47,
+    id: '47',
     name: 'Amazon Fire HD 10',
     description: 'An affordable and versatile tablet for entertainment and productivity.',
     price: 149.99,
@@ -425,7 +425,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 48,
+    id: '48',
     name: 'Sony Alpha 7 III',
     description: 'A full-frame mirrorless camera with outstanding image quality and performance.',
     price: 1999.99,
@@ -434,7 +434,7 @@ export const devices: IDevice[] = [
     type: 'Camera',
   },
   {
-    id: 49,
+    id: '49',
     name: 'Samsung Odyssey G7',
     description: 'An immersive gaming monitor with a curved QLED display.',
     price: 899.99,
@@ -443,7 +443,7 @@ export const devices: IDevice[] = [
     type: 'Monitor',
   },
   {
-    id: 50,
+    id: '50',
     name: 'Fitbit Charge 4',
     description: 'A fitness tracker with built-in GPS and heart rate monitoring.',
     price: 129.99,
@@ -452,7 +452,7 @@ export const devices: IDevice[] = [
     type: 'Fitness Tracker',
   },
   {
-    id: 51,
+    id: '51',
     name: 'ASUS ROG Zephyrus G14',
     description: 'A powerful gaming laptop with a compact design and impressive performance.',
     price: 1499.99,
@@ -461,7 +461,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 52,
+    id: '52',
     name: 'JBL Charge 5',
     description: 'A portable Bluetooth speaker with a long-lasting battery.',
     price: 179.99,
@@ -470,7 +470,7 @@ export const devices: IDevice[] = [
     type: 'Speakers',
   },
   {
-    id: 53,
+    id: '53',
     name: 'GoPro HERO9 Black',
     description: 'A versatile action camera for capturing adventures and outdoor activities.',
     price: 449.99,
@@ -479,7 +479,7 @@ export const devices: IDevice[] = [
     type: 'Camera',
   },
   {
-    id: 54,
+    id: '54',
     name: 'Logitech MX Master 3',
     description: 'An advanced wireless mouse for productivity and multitasking.',
     price: 99.99,
@@ -488,7 +488,7 @@ export const devices: IDevice[] = [
     type: 'Peripherals',
   },
   {
-    id: 55,
+    id: '55',
     name: 'OnePlus 9 Pro',
     description: 'A flagship smartphone with a high-refresh-rate display and fast charging.',
     price: 899.99,
@@ -497,7 +497,7 @@ export const devices: IDevice[] = [
     type: 'Smartphone',
   },
   {
-    id: 56,
+    id: '56',
     name: 'Galaxy Watch 4',
     description: 'A powerful smartwatch with advanced fitness features.',
     price: 299.99,
@@ -506,7 +506,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 57,
+    id: '57',
     name: 'iPad Pro',
     description: 'A high-performance tablet for creative professionals.',
     price: 899.99,
@@ -515,7 +515,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 58,
+    id: '58',
     name: 'XPS 15',
     description: 'A premium laptop with stunning 4K display.',
     price: 1599.99,
@@ -524,7 +524,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 59,
+    id: '59',
     name: 'AirPods Pro',
     description: 'Wireless earbuds with active noise cancellation.',
     price: 249.99,
@@ -533,7 +533,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 60,
+    id: '60',
     name: 'Galaxy Book Pro',
     description: 'A sleek and lightweight laptop for productivity.',
     price: 1199.99,
@@ -542,7 +542,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 61,
+    id: '61',
     name: 'Surface Laptop 4',
     description: 'A versatile laptop for productivity and creativity.',
     price: 1299.99,
@@ -551,7 +551,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 62,
+    id: '62',
     name: 'PlayStation 5',
     description: 'Next-gen gaming console with stunning graphics.',
     price: 499.99,
@@ -560,7 +560,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Console',
   },
   {
-    id: 63,
+    id: '63',
     name: 'MacBook Air M2',
     description: 'Thin and lightweight laptop with Apple M2 chip.',
     price: 1399.99,
@@ -569,7 +569,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 64,
+    id: '64',
     name: 'Xperia 1 III',
     description: 'High-end smartphone with 4K OLED display.',
     price: 999.99,
@@ -578,7 +578,7 @@ export const devices: IDevice[] = [
     type: 'Smartphone',
   },
   {
-    id: 65,
+    id: '65',
     name: 'Fire HD 10',
     description: 'Affordable tablet with a large HD display.',
     price: 149.99,
@@ -587,7 +587,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 66,
+    id: '66',
     name: 'OnePlus 9 Pro',
     description: 'Flagship smartphone with Hasselblad camera.',
     price: 899.99,
@@ -596,7 +596,7 @@ export const devices: IDevice[] = [
     type: 'Smartphone',
   },
   {
-    id: 67,
+    id: '67',
     name: 'Nintendo Switch OLED',
     description: 'Handheld gaming console with OLED display.',
     price: 349.99,
@@ -605,7 +605,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Console',
   },
   {
-    id: 68,
+    id: '68',
     name: 'LG UltraFine 4K Display',
     description: 'High-quality external display for Mac.',
     price: 499.99,
@@ -614,7 +614,7 @@ export const devices: IDevice[] = [
     type: 'Monitor',
   },
   {
-    id: 69,
+    id: '69',
     name: 'Oculus Quest 2',
     description: 'Wireless VR headset with powerful performance.',
     price: 399.99,
@@ -623,7 +623,7 @@ export const devices: IDevice[] = [
     type: 'VR Headset',
   },
   {
-    id: 70,
+    id: '70',
     name: 'iPad Pro M1',
     description: 'Powerful tablet with Apple M1 chip.',
     price: 799.99,
@@ -632,7 +632,7 @@ export const devices: IDevice[] = [
     type: 'Tablet',
   },
   {
-    id: 71,
+    id: '71',
     name: 'Dell XPS 13',
     description: 'Premium laptop with InfinityEdge display.',
     price: 1199.99,
@@ -641,7 +641,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 72,
+    id: '72',
     name: 'GoPro HERO9 Black',
     description: 'High-quality action camera with 5K video.',
     price: 449.99,
@@ -650,7 +650,7 @@ export const devices: IDevice[] = [
     type: 'Action Camera',
   },
   {
-    id: 73,
+    id: '73',
     name: 'Bose QuietComfort Earbuds',
     description: 'Noise-canceling earbuds with excellent sound.',
     price: 279.99,
@@ -659,7 +659,7 @@ export const devices: IDevice[] = [
     type: 'Earbuds',
   },
   {
-    id: 74,
+    id: '74',
     name: 'Razer Blade 15',
     description: 'Gaming laptop with high-performance graphics.',
     price: 1699.99,
@@ -668,7 +668,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 75,
+    id: '75',
     name: 'Samsung Odyssey G9',
     description: 'Ultra-wide gaming monitor with QLED display.',
     price: 1499.99,
@@ -677,7 +677,7 @@ export const devices: IDevice[] = [
     type: 'Monitor',
   },
   {
-    id: 76,
+    id: '76',
     name: 'Fitbit Charge 4',
     description: 'Advanced fitness tracker with GPS and heart rate monitor.',
     price: 149.99,
@@ -686,7 +686,7 @@ export const devices: IDevice[] = [
     type: 'Fitness Tracker',
   },
   {
-    id: 77,
+    id: '77',
     name: 'Raspberry Pi 4',
     description: 'Affordable single-board computer for DIY projects.',
     price: 59.99,
@@ -695,7 +695,7 @@ export const devices: IDevice[] = [
     type: 'Single-Board Computer',
   },
   {
-    id: 78,
+    id: '78',
     name: 'SteelSeries Arctis Pro Wireless',
     description: 'High-fidelity gaming headset with dual wireless technology.',
     price: 329.99,
@@ -704,7 +704,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Headset',
   },
   {
-    id: 79,
+    id: '79',
     name: 'Canon EOS R6',
     description: 'Mirrorless camera with advanced autofocus and 4K video.',
     price: 2499.99,
@@ -713,7 +713,7 @@ export const devices: IDevice[] = [
     type: 'Mirrorless Camera',
   },
   {
-    id: 80,
+    id: '80',
     name: 'JBL Flip 5',
     description: 'Portable Bluetooth speaker with powerful sound.',
     price: 119.99,
@@ -722,7 +722,7 @@ export const devices: IDevice[] = [
     type: 'Bluetooth Speaker',
   },
   {
-    id: 81,
+    id: '81',
     name: 'LG C1 OLED TV',
     description: 'Stunning OLED TV with deep blacks and vibrant colors.',
     price: 1799.99,
@@ -731,7 +731,7 @@ export const devices: IDevice[] = [
     type: 'Smart TV',
   },
   {
-    id: 82,
+    id: '82',
     name: 'Apple Watch Series 7',
     description: 'Advanced smartwatch with larger display and health features.',
     price: 399.99,
@@ -740,7 +740,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 83,
+    id: '83',
     name: 'Logitech MX Master 3',
     description: 'High-precision wireless mouse for productivity.',
     price: 99.99,
@@ -749,7 +749,7 @@ export const devices: IDevice[] = [
     type: 'Mouse',
   },
   {
-    id: 84,
+    id: '84',
     name: 'Garmin Forerunner 945',
     description: 'Advanced GPS smartwatch for athletes and runners.',
     price: 599.99,
@@ -758,7 +758,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 85,
+    id: '85',
     name: 'AMD Ryzen 9 5950X',
     description: 'High-performance desktop processor for gaming and content creation.',
     price: 799.99,
@@ -767,7 +767,7 @@ export const devices: IDevice[] = [
     type: 'Processor',
   },
   {
-    id: 86,
+    id: '86',
     name: 'Samsung Galaxy Buds Pro',
     description: 'Wireless earbuds with active noise cancelation.',
     price: 199.99,
@@ -776,7 +776,7 @@ export const devices: IDevice[] = [
     type: 'Earbuds',
   },
   {
-    id: 87,
+    id: '87',
     name: 'Acer Predator Helios 300',
     description: 'Gaming laptop with high refresh rate display.',
     price: 1299.99,
@@ -785,7 +785,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 88,
+    id: '88',
     name: 'Anker PowerCore 26800',
     description: 'High-capacity portable charger for multiple devices.',
     price: 59.99,
@@ -794,7 +794,7 @@ export const devices: IDevice[] = [
     type: 'Portable Charger',
   },
   {
-    id: 89,
+    id: '89',
     name: 'Sony Alpha 7 IV',
     description: 'High-resolution mirrorless camera for professional photographers.',
     price: 2999.99,
@@ -803,7 +803,7 @@ export const devices: IDevice[] = [
     type: 'Mirrorless Camera',
   },
   {
-    id: 90,
+    id: '90',
     name: 'DJI Mavic Air 2',
     description: 'Foldable drone with 4K video and intelligent flight modes.',
     price: 799.99,
@@ -812,7 +812,7 @@ export const devices: IDevice[] = [
     type: 'Drone',
   },
   {
-    id: 91,
+    id: '91',
     name: 'AOC 24G2U',
     description: 'Affordable gaming monitor with 144Hz refresh rate.',
     price: 249.99,
@@ -821,7 +821,7 @@ export const devices: IDevice[] = [
     type: 'Monitor',
   },
   {
-    id: 92,
+    id: '92',
     name: 'Samsung Galaxy Book Pro 360',
     description: 'Convertible laptop with S Pen support and AMOLED display.',
     price: 1299.99,
@@ -830,7 +830,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 93,
+    id: '93',
     name: 'HyperX Cloud II Wireless',
     description: 'Comfortable wireless gaming headset with virtual surround sound.',
     price: 149.99,
@@ -839,7 +839,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Headset',
   },
   {
-    id: 94,
+    id: '94',
     name: 'Apple Mac Mini M1',
     description: 'Compact desktop computer with Apple M1 chip.',
     price: 699.99,
@@ -848,7 +848,7 @@ export const devices: IDevice[] = [
     type: 'Mini PC',
   },
   {
-    id: 95,
+    id: '95',
     name: 'Jabra Elite 85t',
     description: 'True wireless earbuds with adjustable noise cancellation.',
     price: 229.99,
@@ -857,7 +857,7 @@ export const devices: IDevice[] = [
     type: 'Earbuds',
   },
   {
-    id: 96,
+    id: '96',
     name: 'Lenovo Legion 5 Pro',
     description: 'Powerful gaming laptop with high-refresh-rate display.',
     price: 1599.99,
@@ -866,7 +866,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 97,
+    id: '97',
     name: 'Fitbit Versa 3',
     description: 'Smartwatch with built-in GPS and health tracking features.',
     price: 199.99,
@@ -875,7 +875,7 @@ export const devices: IDevice[] = [
     type: 'Smartwatch',
   },
   {
-    id: 98,
+    id: '98',
     name: 'ASUS ROG Strix G15',
     description: 'Gaming laptop with customizable RGB lighting.',
     price: 1299.99,
@@ -884,7 +884,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 99,
+    id: '99',
     name: 'Bose SoundLink Revolve+',
     description: '360-degree portable Bluetooth speaker with deep bass.',
     price: 299.99,
@@ -893,7 +893,7 @@ export const devices: IDevice[] = [
     type: 'Bluetooth Speaker',
   },
   {
-    id: 100,
+    id: '100',
     name: 'Canon EOS R5',
     description: 'Advanced mirrorless camera for professional photography and video.',
     price: 3699.99,
@@ -902,7 +902,7 @@ export const devices: IDevice[] = [
     type: 'Mirrorless Camera',
   },
   {
-    id: 101,
+    id: '101',
     name: 'Amazon Kindle Oasis',
     description: 'Premium e-reader with adjustable warm light.',
     price: 269.99,
@@ -911,7 +911,7 @@ export const devices: IDevice[] = [
     type: 'E-Reader',
   },
   {
-    id: 102,
+    id: '102',
     name: 'NVIDIA GeForce RTX 3080',
     description: 'High-performance graphics card for gaming and rendering.',
     price: 799.99,
@@ -920,7 +920,7 @@ export const devices: IDevice[] = [
     type: 'Graphics Card',
   },
   {
-    id: 103,
+    id: '103',
     name: 'Razer BlackWidow V3',
     description: 'Mechanical gaming keyboard with customizable RGB lighting.',
     price: 149.99,
@@ -929,7 +929,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Keyboard',
   },
   {
-    id: 104,
+    id: '104',
     name: 'Samsung Odyssey G7',
     description: 'Curved gaming monitor with 240Hz refresh rate.',
     price: 799.99,
@@ -938,7 +938,7 @@ export const devices: IDevice[] = [
     type: 'Monitor',
   },
   {
-    id: 105,
+    id: '105',
     name: 'Sony WH-1000XM4',
     description: 'Premium noise-canceling headphones with great sound quality.',
     price: 349.99,
@@ -947,7 +947,7 @@ export const devices: IDevice[] = [
     type: 'Headphones',
   },
   {
-    id: 106,
+    id: '106',
     name: 'Xbox Series X',
     description: 'Powerful gaming console with 4K resolution and high frame rates.',
     price: 499.99,
@@ -956,7 +956,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Console',
   },
   {
-    id: 107,
+    id: '107',
     name: 'Logitech G Pro X Wireless',
     description: 'Professional gaming headset with Blue VO!CE technology.',
     price: 199.99,
@@ -965,7 +965,7 @@ export const devices: IDevice[] = [
     type: 'Gaming Headset',
   },
   {
-    id: 108,
+    id: '108',
     name: 'Huawei MateBook X Pro',
     description: 'Sleek and powerful laptop with touch screen display.',
     price: 1399.99,
@@ -974,7 +974,7 @@ export const devices: IDevice[] = [
     type: 'Laptop',
   },
   {
-    id: 109,
+    id: '109',
     name: 'Rode VideoMic NTG',
     description: 'Versatile shotgun microphone for video recording.',
     price: 249.99,
@@ -983,7 +983,7 @@ export const devices: IDevice[] = [
     type: 'Microphone',
   },
   {
-    id: 110,
+    id: '110',
     name: 'LG 27GN950-B',
     description: '27-inch 4K gaming monitor with Nano IPS display.',
     price: 899.99,
@@ -992,7 +992,7 @@ export const devices: IDevice[] = [
     type: 'Monitor',
   },
   {
-    id: 111,
+    id: '111',
     name: 'Microsoft Surface Pro 8',
     description: 'Convertible tablet with powerful performance and pen support.',
     price: 1199.99,
