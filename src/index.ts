@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import userRouter from './routers/userRouter.js'
 import deviceRouter from './routers/deviceRouter.js'
 import cors from 'cors';
+import fileUpload from 'express-fileupload';
 
 // App creation
 const app = express();
@@ -12,9 +13,12 @@ app.use(cors({
   origin: '*'
 }));
 
-
 // Request body recognition
 app.use(bodyParser.json());
+
+app.use(express.static('static'));
+
+app.use(fileUpload());
 
 // Import user routes
 app.use('/users', userRouter);
