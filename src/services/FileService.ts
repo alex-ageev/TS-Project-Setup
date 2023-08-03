@@ -4,9 +4,11 @@ import path from 'path';
 
 class FileService {
     async save(file: any) {
+
       const fileExt = file.mimetype.split('/')[1];
       const fileName = generateFileName() + '.' + fileExt;
-      const filePath = path.resolve('static', fileName);
+      const filePath = path.resolve('static', fileName); // static + / + fileName
+
       await file.mv(filePath);
 
       return fileName;

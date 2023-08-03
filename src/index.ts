@@ -5,9 +5,14 @@ import userRouter from './routers/userRouter.js'
 import deviceRouter from './routers/deviceRouter.js'
 import cors from 'cors';
 import fileUpload from 'express-fileupload';
+import mongoose from 'mongoose';
+
 
 // App creation
 const app = express();
+
+const MONGO_URI = 'mongodb+srv://_:_@cluster0.p1fsqgv.mongodb.net/?retryWrites=true&w=majority';
+
 
 app.use(cors({
   origin: '*'
@@ -32,7 +37,14 @@ app.use(express.json());
 // Port number
 const PORT = 5555;
 
-// Start server
-app.listen(PORT, () => {
-  console.log('Server started on port ' + PORT);
-});
+
+const startApp = async () => {
+  mongoose.set('strictQuery', true);
+  await mongoose.connect(MONGO_URI);
+  console.log('Successfully connected to db')
+  // Start server
+  app.listen(PORT, () => {
+    console.log('Server started on port ' + PORT);
+  });
+}
+startApp();
