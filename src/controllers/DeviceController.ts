@@ -1,4 +1,4 @@
-import DeviceModel, { IDevice, IDeviceMongoose } from "./../models/deviceModel.js";
+import { BrandModel, DeviceModel, IDeviceMongoose, TypeModel } from "./../models/deviceModel.js";
 import { devices } from "./../data/deviceData.js";
 import { Request, Response } from "express";
 import { v4 as generateId } from 'uuid';
@@ -31,7 +31,6 @@ class DeviceController {
       res.status(500).send(err)
     }
   }
-
   async update(req: Request, res: Response) {
     try {
       const deviceId = req.params.id;
@@ -69,7 +68,6 @@ class DeviceController {
       console.log(err)
     }
   }
-
   async getOne(req: Request, res: Response) {
     try {
       const deviceId = req.params.id;
@@ -120,7 +118,6 @@ class DeviceController {
       console.error(err);
     }
   }
-
   async delete(req: Request, res: Response) {
     try {
       const deviceID = req.params.id;
@@ -137,7 +134,6 @@ class DeviceController {
       res.status(500).send({ errorMessage: 'Failed to delete device', error: err });
     }
   }
-
   async getBrands(req: Request, res: Response) {
     try {
       const uniqueBrands: string[] = await DeviceModel.distinct('brands');
@@ -147,7 +143,6 @@ class DeviceController {
       res.status(500).send({ errorMessage: 'Failed to get brands', error: err });
     }
   }
-
   async getTypes(req: Request, res: Response) {
     try {
       const uniqueTypes: string[] = await DeviceModel.distinct('types');
@@ -156,6 +151,16 @@ class DeviceController {
       res.status(500).send({ errorMessage: 'Failed to get types', error: err });
     }
   }
+
+  async createType(req: Request, res: Response) {
+    const { name } = req.body;
+    const newType = new TypeModel({ name });
+
+    const savedType = await newType.save();
+
+    return res.status(201).json(savedType)
+  }
+  async deleteType(req: Request, res: Response) { }
 }
 
 export default new DeviceController;
