@@ -13,7 +13,17 @@ class FileService {
 
       return fileName;
     }
-    async delete() { }
+    async delete(fileName: string) {
+      const filePath = path.resolve('static', fileName);
+      console.log(filePath);
+      try {
+        await fs.promises.unlink(filePath);
+        console.log('File deleted successfully.')
+        return true;
+      } catch (err) {
+        console.log(err)
+      }
+    }
   }
 
 export default new FileService();

@@ -1,44 +1,89 @@
-import { IDevice } from "./../models/deviceModel.js";
+import DeviceModel, { IDevice, IDeviceMongoose } from "./../models/deviceModel.js";
 import { devices } from "./../data/deviceData.js";
 import { Request, Response } from "express";
 import { v4 as generateId } from 'uuid';
 import FileService from "../services/FileService.js";
 
 class DeviceController {
-  getAll(req: Request, res: Response) {
+  async getAll(req: Request, res: Response) {
     // query -> http://localhost:5555/devices/?type=Laptop&brand=HP
+    try {
+      const { type, brand } = req.query;
 
-    const { type, brand } = req.query;
+      let filter: any = {};
 
-    let filteredDevices = devices;
+      if (type && type !== 'all') {
+        filter.type = type;
+      }
 
-    if (type && type !== 'all') {
-      filteredDevices = filteredDevices.filter((device) => device.type === type)
+      if (brand && brand !== 'all') {
+        filter.brand = brand;
+      }
+
+      console.log(filter);
+
+      /* {type: 'Smartphone', brand: 'Samsung'} */
+
+      const filteredDevices = await DeviceModel.find(filter);
+
+      return res.status(200).json(filteredDevices)
+    } catch (err) {
+      res.status(500).send(err)
     }
-
-    if (brand && brand !== 'all') {
-      filteredDevices = filteredDevices.filter((device) => device.brand === brand)
-    }
-
-    console.log(type, brand)
-
-    return res.status(200).json(filteredDevices)
   }
-  getOne(req: Request, res: Response) {
+
+  async update(req: Request, res: Response) {
     try {
       const deviceId = req.params.id;
 
-      const foundDevice = devices.find((device) => device.id === deviceId);
+      const { name, description, price, brand, type } = req.body;
+
+      const image = req.files?.image;
+
+      let imageUrl = 'no-image.jpg';
+
+      let existingDevice: IDeviceMongoose | null = await DeviceModel.findById(deviceId);
+
+      if (!existingDevice) {
+        res.status(404).json({ message: "Device not found" });
+      }
+
+      if (existingDevice) {
+        if (existingDevice.image_url && existingDevice.image_url !== 'no-image.jpg') {
+          await FileService.delete(existingDevice.image_url);
+        }
+
+        if (image) {
+          imageUrl = await FileService.save(image);
+        }
+        existingDevice.name = name || existingDevice.name;
+        existingDevice.description = description || existingDevice.description;
+        existingDevice.price = price || existingDevice.price;
+        existingDevice.image_url = imageUrl || existingDevice.image_url;
+        existingDevice.brand = brand || existingDevice.brand;
+        existingDevice.type = type || existingDevice.type;
+        const updatedDevice = await existingDevice.save();
+        res.json(updatedDevice);
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async getOne(req: Request, res: Response) {
+    try {
+      const deviceId = req.params.id;
+
+      const foundDevice: IDeviceMongoose | null = await DeviceModel.findById(deviceId);
 
       if (!foundDevice) {
         res.status(404).send({ errorMessage: 'Device not found' })
       }
-      //                    http  ://  localhost:5555 /  f640d7f4-8be4-4cb1-b3dc-a9bf273f097c.jpeg
+
       const fullImageUrl = `${req.protocol}://${req.get('host')}/${foundDevice?.image_url}`;
 
-      console.log(fullImageUrl);
       const deviceWithFullImageUrl = {
-        ...foundDevice,
+        ...foundDevice?.toJSON(),
         image_url: fullImageUrl,
       }
 
@@ -58,20 +103,19 @@ class DeviceController {
       imageUrl = await FileService.save(image);
     }
 
-    console.log(image);
-
     try {
-      const newDevice: IDevice = {
-        id: generateId(),
+      const newDevice: IDeviceMongoose = new DeviceModel({
         name,
         description,
         price: parseFloat(price),
         image_url: imageUrl,
         brand,
         type
-      }
-      devices.push(newDevice);
-      res.status(201).json(newDevice);
+      });
+
+      const savedDevice = await newDevice.save();
+
+      res.status(201).json(savedDevice);
     } catch (err) {
       console.error(err);
     }
@@ -80,13 +124,12 @@ class DeviceController {
   async delete(req: Request, res: Response) {
     try {
       const deviceID = req.params.id;
-      const deviceIndex = devices.findIndex((device) => device.id === deviceID);
 
-      if (deviceIndex === -1) {
+      const deletedDevice: IDeviceMongoose | null = await DeviceModel.findByIdAndDelete(deviceID);
+
+      if (!deletedDevice) {
         res.status(404).json({ error: 'Device not found' });
       }
-
-      const deletedDevice = devices.splice(deviceIndex, 1)[0];
 
       res.json(deletedDevice);
     } catch (err) {
@@ -95,16 +138,23 @@ class DeviceController {
     }
   }
 
-  getBrands(req: Request, res: Response) {
-    const brands = devices.map((device) => device.brand);
-    const uniqueBrands = [...new Set(brands)];
-    res.json(uniqueBrands);
+  async getBrands(req: Request, res: Response) {
+    try {
+      const uniqueBrands: string[] = await DeviceModel.distinct('brands');
+      console.log(uniqueBrands);
+      res.json(uniqueBrands);
+    } catch (err) {
+      res.status(500).send({ errorMessage: 'Failed to get brands', error: err });
+    }
   }
 
-  getTypes(req: Request, res: Response) {
-    const types = devices.map((device) => device.type);
-    const uniqueTypes = [...new Set(types)];
-    res.json(uniqueTypes);
+  async getTypes(req: Request, res: Response) {
+    try {
+      const uniqueTypes: string[] = await DeviceModel.distinct('types');
+      res.json(uniqueTypes);
+    } catch (err) {
+      res.status(500).send({ errorMessage: 'Failed to get types', error: err });
+    }
   }
 }
 

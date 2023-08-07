@@ -8,6 +8,6 @@ router.get('/:id', DeviceController.getOne);
 router.delete('/:id', DeviceController.delete);
 router.get('/', DeviceController.getAll);
 router.post('/', DeviceController.create);
-
+router.put('/:id', DeviceController.update);
 
 export default router;
