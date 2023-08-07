@@ -11,7 +11,7 @@ import mongoose from 'mongoose';
 // App creation
 const app = express();
 
-const MONGO_URI = 'mongodb+srv://_:_@cluster0.p1fsqgv.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://user:user@cluster0.p1fsqgv.mongodb.net/?retryWrites=true&w=majority';
 
 
 app.use(cors({
@@ -35,7 +35,7 @@ app.use('/devices', deviceRouter);
 app.use(express.json());
 
 // Port number
-const PORT = 5555;
+const PORT = 7878;
 
 
 const startApp = async () => {

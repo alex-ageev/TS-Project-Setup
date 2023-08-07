@@ -3,6 +3,7 @@ import DeviceController from './../controllers/DeviceController.js'
 const router = express.Router();
 
 router.post('/types', DeviceController.createType);
+router.post('/brands', DeviceController.createBrand);
 
 router.get('/brands', DeviceController.getBrands);
 router.get('/types', DeviceController.getTypes);

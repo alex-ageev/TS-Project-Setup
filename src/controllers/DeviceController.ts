@@ -1,4 +1,9 @@
-import { BrandModel, DeviceModel, IDeviceMongoose, TypeModel } from "./../models/deviceModel.js";
+import { BrandModel,
+  DeviceModel,
+  IBrand,
+  IDeviceMongoose,
+  IType,
+  TypeModel } from "./../models/deviceModel.js";
 import { devices } from "./../data/deviceData.js";
 import { Request, Response } from "express";
 import { v4 as generateId } from 'uuid';
@@ -136,17 +141,16 @@ class DeviceController {
   }
   async getBrands(req: Request, res: Response) {
     try {
-      const uniqueBrands: string[] = await DeviceModel.distinct('brands');
-      console.log(uniqueBrands);
-      res.json(uniqueBrands);
+      const brands: IBrand[] = await BrandModel.find();
+      res.json(brands);
     } catch (err) {
       res.status(500).send({ errorMessage: 'Failed to get brands', error: err });
     }
   }
   async getTypes(req: Request, res: Response) {
     try {
-      const uniqueTypes: string[] = await DeviceModel.distinct('types');
-      res.json(uniqueTypes);
+      const types: IType[] = await TypeModel.find();
+      res.json(types);
     } catch (err) {
       res.status(500).send({ errorMessage: 'Failed to get types', error: err });
     }
@@ -160,6 +164,16 @@ class DeviceController {
 
     return res.status(201).json(savedType)
   }
+
+  async createBrand(req: Request, res: Response) {
+    const { name } = req.body;
+    const newBrand = new BrandModel({ name });
+
+    const savedBrand = await newBrand.save();
+
+    return res.status(201).json(savedBrand)
+  }
+
   async deleteType(req: Request, res: Response) { }
 }
 
