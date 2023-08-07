@@ -31,7 +31,9 @@ class DeviceController {
 
       /* {type: 'Smartphone', brand: 'Samsung'} */
 
-      const filteredDevices = await DeviceModel.find(filter);
+      const filteredDevices = await DeviceModel.find(filter)
+      .populate('brandId', 'name')
+      .populate('typeId', 'name').select('-updatedAt').select('-createdAt');
 
       return res.status(200).json(filteredDevices)
     } catch (err) {
@@ -85,7 +87,8 @@ class DeviceController {
     try {
       const deviceId = req.params.id;
 
-      const foundDevice: IDeviceMongoose | null = await DeviceModel.findById(deviceId);
+      const foundDevice = await DeviceModel.findById(deviceId).populate('brandId', 'name')
+      .populate('typeId', 'name').select('-updatedAt').select('-createdAt');
 
       if (!foundDevice) {
         res.status(404).send({ errorMessage: 'Device not found' })
