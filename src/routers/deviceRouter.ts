@@ -4,6 +4,8 @@ const router = express.Router();
 
 router.post('/types', DeviceController.createType);
 router.post('/brands', DeviceController.createBrand);
+router.delete('/brands/:id', DeviceController.deleteBrand);
+router.delete('/types/:id', DeviceController.deleteType);
 
 router.get('/brands', DeviceController.getBrands);
 router.get('/types', DeviceController.getTypes);

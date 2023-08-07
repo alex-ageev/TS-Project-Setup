@@ -1,9 +1,11 @@
-import { BrandModel,
+import {
+  BrandModel,
   DeviceModel,
   IBrand,
   IDeviceMongoose,
   IType,
-  TypeModel } from "./../models/deviceModel.js";
+  TypeModel
+} from "./../models/deviceModel.js";
 import { devices } from "./../data/deviceData.js";
 import { Request, Response } from "express";
 import { v4 as generateId } from 'uuid';
@@ -40,7 +42,7 @@ class DeviceController {
     try {
       const deviceId = req.params.id;
 
-      const { name, description, price, brand, type } = req.body;
+      const { name, description, price, brandId, typeId } = req.body;
 
       const image = req.files?.image;
 
@@ -64,8 +66,14 @@ class DeviceController {
         existingDevice.description = description || existingDevice.description;
         existingDevice.price = price || existingDevice.price;
         existingDevice.image_url = imageUrl || existingDevice.image_url;
-        existingDevice.brand = brand || existingDevice.brand;
-        existingDevice.type = type || existingDevice.type;
+
+        if (brandId) {
+          existingDevice.brandId = brandId;
+        }
+        if (typeId) {
+          existingDevice.typeId = typeId;
+        }
+
         const updatedDevice = await existingDevice.save();
         res.json(updatedDevice);
       }
@@ -97,7 +105,7 @@ class DeviceController {
     }
   }
   async create(req: Request, res: Response) {
-    const { name, description, price, brand, type } = req.body;
+    const { name, description, price, brandId, typeId } = req.body;
     const image = req.files?.image;
 
     let imageUrl = 'no-image.jpg';
@@ -112,8 +120,8 @@ class DeviceController {
         description,
         price: parseFloat(price),
         image_url: imageUrl,
-        brand,
-        type
+        brandId,
+        typeId
       });
 
       const savedDevice = await newDevice.save();
@@ -174,7 +182,31 @@ class DeviceController {
     return res.status(201).json(savedBrand)
   }
 
-  async deleteType(req: Request, res: Response) { }
+  async deleteBrand(req: Request, res: Response) {
+    try {
+      const brandId = req.params.id;
+      const deletedBrand = await BrandModel.findByIdAndDelete(brandId);
+      if (!deletedBrand) {
+        res.status(404).json({ error: 'Brand not found' });
+      }
+      res.json(deletedBrand);
+    } catch (err) {
+      res.status(500).json({ message: 'Failed to delete brand', error: err });
+    }
+  }
+
+  async deleteType(req: Request, res: Response) {
+    try {
+      const typeId = req.params.id;
+      const deletedType = await TypeModel.findByIdAndDelete(typeId);
+      if (!deletedType) {
+        res.status(404).json({ error: 'Type not found' });
+      }
+      res.json(deletedType);
+    } catch (err) {
+      res.status(500).json({ message: 'Failed to delete type', error: err });
+    }
+  }
 }
 
 export default new DeviceController;

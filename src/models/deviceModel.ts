@@ -8,8 +8,8 @@ const DeviceSchema = new mongoose.Schema({
   description: { type: String, required: false },
   price: { type: Number, required: true, min: 0 },
   image_url: { type: String, default: 'no-image.png' },
-  brand: { type: mongoose.Schema.ObjectId, required: true, ref: 'Brand' },
-  type: { type: mongoose.Schema.ObjectId, required: true, ref: 'Type' },
+  brandId: { type: mongoose.Schema.ObjectId, required: true, ref: 'Brand' },
+  typeId: { type: mongoose.Schema.ObjectId, required: true, ref: 'Type' },
 }, { timestamps: true });
 
 export interface IDevice {
@@ -30,8 +30,8 @@ export interface IDeviceMongoose extends mongoose.Document {
   description: string;
   price: number;
   image_url: string;
-  brand: string;
-  type: string;
+  brandId: string;
+  typeId: string;
 }
 
 const BrandModel = mongoose.model<IBrand>('Brand', BrandSchema);
