@@ -1,6 +1,9 @@
 import jwt, { Secret } from "jsonwebtoken";
 import { IUser } from './../models/userModel.js'
 import Role from './../models/roleModel.js'
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 export interface ITokenPayload {
   id: string,
@@ -9,20 +12,32 @@ export interface ITokenPayload {
 }
 
 class TokenService {
-  private readonly secretKey: Secret = 'SECRET_ACCESS_TOKEN_WORD'
+  private readonly secretKey: Secret | undefined = process.env.SECRET_ACCESS_TOKEN_KEY;
+
   generateAccessToken(user: IUser): { accessToken: string } {
-    const payload = {
-      id: user.id,
-      email: user.email,
-      roles: user.roles
+    try {
+      if (!this.secretKey) {
+        throw new Error("Internal error")
+      }
+      const payload = {
+        id: user.id,
+        email: user.email,
+        roles: user.roles
+      }
+      const accessToken = jwt.sign(payload, this.secretKey, {
+        expiresIn: "15d"
+      })
+      return { accessToken: accessToken }
+    } catch (err) {
+      console.log(err)
+      return { accessToken: '' };
     }
-    const accessToken = jwt.sign(payload, this.secretKey, {
-      expiresIn: "15d"
-    })
-    return { accessToken: accessToken }
   }
   validateAccessToken(token: string): ITokenPayload | null {
     try {
+      if (!this.secretKey) {
+        throw new Error("Internal error")
+      }
       const userPayload = jwt.verify(token, this.secretKey) as ITokenPayload;
       return userPayload;
     } catch (err) {
