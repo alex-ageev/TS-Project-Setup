@@ -1,7 +1,7 @@
 // import { testFunction } from './modules/test.js'
 import express from 'express';
 import bodyParser from 'body-parser';
-import userRouter from './routers/userRouter.js'
+import authRouter from './routers/authRouter.js'
 import deviceRouter from './routers/deviceRouter.js'
 import cors from 'cors';
 import fileUpload from 'express-fileupload';
@@ -27,8 +27,8 @@ app.use(express.static('static'));
 
 app.use(fileUpload());
 
-// Import user routes
-app.use('/users', userRouter);
+// Import authorization routes
+app.use('/auth', authRouter);
 
 // Import device routes
 app.use('/devices', deviceRouter);
