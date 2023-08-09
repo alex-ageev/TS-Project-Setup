@@ -8,7 +8,7 @@ router.post('/roles', AuthController.createRole);
 router.delete('/roles/:id', AuthController.deleteRole);
 
 // router.get('/:id', UserController.getOne);
-// router.post('/register', UserController.register);
+router.post('/register', AuthController.register);
 // router.post('/', UserController.register);
 // router.delete('/:id', UserController.delete);
 // router.put('/:id', UserController.update);

@@ -24,7 +24,25 @@ class AuthService {
       console.log(err)
     }
   }
-  async register() { }
+  async register(name: string, email: string,
+    password: string, roles: string[]) {
+    const existingUser = await UserModel.findOne({ email });
+
+    if (existingUser) {
+      throw new Error(`User ${name} already exists`);
+    }
+
+    const newUser: IUser = new UserModel({
+      name,
+      email,
+      password,
+      roles
+    });
+
+    const savedUser = await newUser.save();
+
+    return savedUser;
+  }
   async login() { }
 }
 

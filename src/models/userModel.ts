@@ -23,13 +23,28 @@ export interface IUser extends mongoose.Document {
 }
 
 const UserSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (value: string) {
+        return value.length >= 5
+      },
+      message: 'Name must be at least 5 characters long.'
+    }
+  },
   email: {
     type: String,
     unique: true,
     required: true,
     trim: true,
-    lowercase: true
+    lowercase: true,
+    validate: {
+      validator: function (value: string) {
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
+      },
+      message: 'Email is not valid.'
+    }
   },
   password: {
     type: String,
@@ -43,7 +58,12 @@ const UserSchema = new mongoose.Schema({
       return hashedPassword;
     },
   },
-  roles: { type: mongoose.Schema.ObjectId, required: true, ref: 'Role' },
+  roles: {
+    type: mongoose.Schema.ObjectId,
+    required: true,
+    ref: 'Role',
+    default: '64d3f76dba59ae4c470f901f'
+  },
 });
 
 const RoleModel = mongoose.model<IRole>("Role", RoleSchema);
