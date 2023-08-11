@@ -58,13 +58,13 @@ const UserSchema = new mongoose.Schema({
       return hashedPassword;
     },
   },
-  roles: {
-    type: mongoose.Schema.ObjectId,
-    required: true,
+  roles: [{
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Role',
     default: '64d3f76dba59ae4c470f901f'
-  },
+  }],
 });
+
 
 const RoleModel = mongoose.model<IRole>("Role", RoleSchema);
 const UserModel = mongoose.model<IUser>("User", UserSchema);

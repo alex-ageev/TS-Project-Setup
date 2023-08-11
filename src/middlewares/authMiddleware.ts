@@ -1,5 +1,17 @@
 import { Response, Request, NextFunction } from "express";
 import TokenService from "../services/TokenService.js";
+
+declare global {
+  namespace Express {
+    interface Request {
+      user: {
+        id: string,
+        email: string,
+        roles: string[];
+      };
+    }
+  }
+}
 export default function authMiddleware(req: Request, res: Response, next: NextFunction) {
   console.log(req.headers.authorization)
   const authToken = req.headers.authorization;
@@ -14,6 +26,7 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
   if (!decodedPayload) {
     return res.status(401).json({ error: "Invalid Bearer token"});
   }
+  req.user = decodedPayload;
 
   next();
 }

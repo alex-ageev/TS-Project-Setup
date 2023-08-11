@@ -31,7 +31,7 @@ app.use(fileUpload());
 app.use('/auth', authRouter);
 
 // Import device routes
-app.use('/devices', deviceRouter);
+app.use('/api', deviceRouter);
 
 // The data format
 app.use(express.json());

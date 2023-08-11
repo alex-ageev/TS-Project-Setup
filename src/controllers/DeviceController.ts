@@ -15,16 +15,16 @@ class DeviceController {
   async getAll(req: Request, res: Response) {
     // query -> http://localhost:5555/devices/?type=Laptop&brand=HP
     try {
-      const { type, brand } = req.query;
+      const { typeId, brandId } = req.query;
 
       let filter: any = {};
 
-      if (type && type !== 'all') {
-        filter.type = type;
+      if (typeId && typeId !== 'all') {
+        filter.typeId = typeId;
       }
 
-      if (brand && brand !== 'all') {
-        filter.brand = brand;
+      if (brandId && brandId !== 'all') {
+        filter.brandId = brandId;
       }
 
       console.log(filter);

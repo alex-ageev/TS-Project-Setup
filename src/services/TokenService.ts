@@ -14,8 +14,9 @@ export interface ITokenPayload {
 class TokenService {
   private readonly secretKey: Secret | undefined = process.env.SECRET_ACCESS_TOKEN_KEY;
 
-  generateAccessToken(user: IUser): { accessToken: string } {
+  generateAccessToken(user: any): { accessToken: string } {
     try {
+      console.log(user)
       if (!this.secretKey) {
         throw new Error("Internal error")
       }

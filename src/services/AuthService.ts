@@ -1,4 +1,4 @@
-import { IUser, UserModel } from "../models/userModel.js";
+import { IUser, RoleModel, UserModel } from "../models/userModel.js";
 
 class AuthService {
   async getAll() {
@@ -24,25 +24,37 @@ class AuthService {
       console.log(err)
     }
   }
-  async register(name: string, email: string,
-    password: string, roles: string[]) {
-    const existingUser = await UserModel.findOne({ email });
 
-    if (existingUser) {
-      throw new Error(`User ${name} already exists`);
+  async register(name: string, email: string, password: string, roleIds: string[] = []): Promise<IUser> {
+    try {
+      const existingUser = await UserModel.findOne({ email });
+
+      if (existingUser) {
+        throw new Error(`User ${name} already exists`);
+      }
+
+      // Assign roles based on provided roleIds or use the default role ID
+      const rolesToAssign = roleIds.length > 0 ? roleIds : ['64d3f76dba59ae4c470f901f'];
+
+      const newUser: IUser = new UserModel({
+        name,
+        email,
+        password,
+        roles: rolesToAssign,
+      });
+
+      const savedUser = await newUser.save();
+
+      return savedUser;
+
+    } catch (error) {
+      console.error(error);
+      throw new Error("Registration failed.");
     }
-
-    const newUser: IUser = new UserModel({
-      name,
-      email,
-      password,
-      roles
-    });
-
-    const savedUser = await newUser.save();
-
-    return savedUser;
   }
+
+
+
   async login() { }
 }
 
