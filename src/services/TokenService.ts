@@ -1,6 +1,5 @@
 import jwt, { Secret } from "jsonwebtoken";
-import { IUser } from './../models/userModel.js'
-import Role from './../models/roleModel.js'
+import { IRole, IUser } from './../models/userModel.js'
 import dotenv from 'dotenv'
 
 dotenv.config();
@@ -8,7 +7,7 @@ dotenv.config();
 export interface ITokenPayload {
   id: string,
   email: string,
-  roles: Role[]
+  roles: [string]
 }
 
 class TokenService {

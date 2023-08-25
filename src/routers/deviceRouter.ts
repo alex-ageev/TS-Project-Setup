@@ -4,7 +4,7 @@ import authMiddleware from '../middlewares/authMiddleware.js';
 const router = express.Router();
 import * as validationsMiddleware from '../utils/validations.js';
 
-router.get('/devices', DeviceController.getAll);
+router.get('/devices', authMiddleware, DeviceController.getAll);
 router.post('/types', DeviceController.createType);
 router.post('/brands', DeviceController.createBrand);
 router.delete('/brands/:id', DeviceController.deleteBrand);

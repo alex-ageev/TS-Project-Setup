@@ -1,6 +1,9 @@
 import { IUser, RoleModel, UserModel } from "../models/userModel.js";
 
 class AuthService {
+  async isAdmin(user: IUser) {
+    return user.roles.includes("64d4ce1067e9ac029c7d140f");
+  }
   async getAll() {
     try {
       const allUsers: IUser[] = await UserModel.find()

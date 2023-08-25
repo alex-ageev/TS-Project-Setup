@@ -13,7 +13,7 @@ declare global {
   }
 }
 export default function authMiddleware(req: Request, res: Response, next: NextFunction) {
-  console.log(req.headers.authorization)
+
   const authToken = req.headers.authorization;
 
   if (!authToken) {
@@ -26,6 +26,7 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
   if (!decodedPayload) {
     return res.status(401).json({ error: "Invalid Bearer token"});
   }
+
   req.user = decodedPayload;
 
   next();

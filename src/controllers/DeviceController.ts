@@ -10,10 +10,17 @@ import { devices } from "./../data/deviceData.js";
 import { Request, Response } from "express";
 import { v4 as generateId } from 'uuid';
 import FileService from "../services/FileService.js";
+import { IUser } from "../models/userModel.js";
+import AuthService from "../services/AuthService.js";
 
 class DeviceController {
   async getAll(req: Request, res: Response) {
     // query -> http://localhost:5555/devices/?type=Laptop&brand=HP
+
+    if (!AuthService.isAdmin(req.user as IUser)) {
+      return res.status(401).json({ error: "Not authorized" });
+    }
+
     try {
       const { typeId, brandId } = req.query;
 
@@ -137,6 +144,10 @@ class DeviceController {
   async delete(req: Request, res: Response) {
     try {
       const deviceID = req.params.id;
+
+      if (!AuthService.isAdmin(req.user as IUser)) {
+        return res.status(401).json({ error: "Not authorized" });
+      }
 
       const deletedDevice: IDeviceMongoose | null = await DeviceModel.findByIdAndDelete(deviceID);
 
